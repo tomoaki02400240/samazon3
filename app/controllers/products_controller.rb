@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_params, only: %w(show edit update destroy favorite)
+  PER = 5
   def index
-    @products = Product.all
+   # @products = Product.all
+   @products = Product.page(params[:page]).per(PER)
   end
 
   def show
