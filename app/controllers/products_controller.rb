@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+  before_action :set_params, only: %w(show edit update destroy favorite)
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
+    
+    @reviews = @product.reviews
+    @review = @reviews.new
   end
 
   def new
@@ -13,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    
   end
 
   def create
@@ -24,20 +27,29 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
+    
     @product.update(product_params)
     redirect_to product_path(@product)
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    
     @product.destroy
     redirect_to products_path
+  end
+
+  def favorite
+    current_user.toggle_like!(@product)
+    redirect_to product_path(@product)
   end
 
   private
 
   def product_params
     params.require(:product).permit(:name, :price, :description, :category_id)
+  end
+
+  def set_params
+    @product = Product.find(params[:id])
   end
 end

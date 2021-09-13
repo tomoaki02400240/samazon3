@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -23,6 +24,14 @@ Rails.application.routes.draw do
   #get 'products/create'
   #get 'products/update'
   #get 'products/destroy'
-  resources :products
+  resources :products  do
+    member do
+      get 'favorite'
+    end
+  end
+
+  post "reviews/:id/create", to: "reviews#create", as: :reviews
+  
+  #post "review/:id/create", to: "reviews#create", as: :review_create
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
