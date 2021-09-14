@@ -6,28 +6,29 @@ computer_categories = ["ノートPC", "デスクトップPC", "タブレット"]
 display_categories = ["19~20インチ", "デスクトップPC", "タブレット"]
 
 major_category_names.each do |major_category_name|
+
   if major_category_name == "本"
-    book_categories.each do |book_category|
+    book_categories.each do |book|
       Category.create(
-        name: book_category,
-        description: book_category,
-        major_category_name: major_category_name
+        major_category_name: major_category_name,
+        name: book,
+        description: book
       )
     end
-  elsif major_category_name == "コンピューター"
-    computer_categories.each do |computer_category|
+  elsif major_category_name == "コンピュータ"
+    computer_categories.each do |computer|
       Category.create(
-        name: computer_category,
-        description: computer_category,
-        major_category_name: major_category_name
+        major_category_name: major_category_name,
+        name: computer,
+        description: computer
       )
     end
   elsif major_category_name == "ディスプレイ"
-    display_categories.each do |display_category|
+    display_categories.each do | display|
       Category.create(
-        name: display_category,
-        description: display_category,
-        major_category_name: major_category_name
+        major_category_name: major_category_name,
+        name: display,
+        description: display
       )
     end
   end
