@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #pagination
 gem 'kaminari'
-gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
+
+
 
 
 gem 'dotenv-rails'

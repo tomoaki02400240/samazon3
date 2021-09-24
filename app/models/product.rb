@@ -9,7 +9,7 @@ class Product < ApplicationRecord
     #  where(category_id: category).page(page).per(PER)
     #else
      # page(page).per(PER)
-    #end
+    #en     d
   #}
   
   scope :sort_list, -> {

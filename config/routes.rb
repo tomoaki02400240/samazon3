@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+ # get 'users/edit'
+ # get 'users/update'
+ # get 'users/mypage'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -32,6 +35,14 @@ Rails.application.routes.draw do
 
   post "reviews/:id/create", to: "reviews#create", as: :reviews
   
+  resource :users, only: %w(edit update) do
+    collection do
+      get "mypage", to: "users#mypage"
+      get "mypage/edit", to: "users#edit"
+      get "mypage/address/edit", to: "users#edit_address"
+      put "mypage", to: "users#update"
+    end
+  end
   #post "review/:id/create", to: "reviews#create", as: :review_create
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

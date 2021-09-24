@@ -11,7 +11,7 @@ class Category < ApplicationRecord
     #end
   #}
 
-  scope :request_category, -> (category){
+      scope :request_category, -> (category){
     find(category)
   }
 end
