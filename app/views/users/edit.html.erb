@@ -54,6 +54,7 @@
               <%= 
               f.email_field :email,
               class: "form-control #{"is-invalid" if @user.errors.messages[:email].present?}",
+              value: @user.email,
               autofocus: true,
               require: "",
               autocomplete: "email",

@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #pagination
 gem 'kaminari'
-
+#ショッピングカート機能
+gem 'acts_as_shopping_cart'
 
 
 
